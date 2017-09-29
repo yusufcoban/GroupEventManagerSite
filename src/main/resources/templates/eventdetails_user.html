@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1" />
+<title>Eventdetails</title>
+<link rel="shortcut icon" href="../basketball0.png" />
+<link href="../bootstrap.css" rel="stylesheet" />
+<link href="../meincssfile.css" rel="stylesheet" />
+<script src="../excellentexport.js"></script>
+<script type="text/javascript"
+	src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>
+<script type="text/javascript" src="../uhr.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="uhr.js"></script>
+<script type="text/javascript"
+	src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+			$(document).ready(function() {
+				$('#eventtable').DataTable();
+			} );
+		</script>
+
+</head>
+<body class="background" background="../Ballen.jpg">
+	<div class="container-fluid navigation navbar-fixed-top">
+		<div class="row">
+			<div class="col-md-9 nav1">
+				<a class="navbar-brand" href="../myevents"><img class="logo"
+					src="../logowhite.png"></img></a>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="../myevents">My Events</a></li>
+						<li><a href="../events">Events</a></li>
+						<li><a href="../category">Category</a></li>
+						<li><a href="../about">About</a></li>
+						<li><a href="../contact">Contact</a></li>
+
+					</ul>
+				</div>
+			</div>
+
+			<div class="col-md-2">
+				<ul class="nav navbar-nav navbar-right">
+					<ul class="nav navbar-nav navbar-left">
+						<li><a href="../myevents"><img src="../user.png"></img> <span
+								class="sr-only">(current)</span></a></li>
+					</ul>
+				</ul>
+			</div>
+
+			<div class="col-md-1">
+				<ul class="nav navbar-nav navbar-left status">
+					<li><p th:inline="text" href="../myevents">Userid:[[${#httpServletRequest.remoteUser}]]!</p>
+						<!-- <a href="/myevents">UserID: [[${#httpServletRequest.remoteUser}]]<span class="sr-only"></span></a>
+					 -->
+						<form th:action="@{/logout}" method="post">
+							<input type="submit" value="Log Out" class="logout" />
+						</form></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="row hauptteil">
+		<div class="col-sm-1">
+			<div class="clock">
+				<ul>
+					<li id="hours"></li>
+					<li id="point">:</li>
+					<li id="min"></li>
+				</ul>
+			</div>
+		</div>
+
+
+		<div class="col-sm-11">
+			<div
+				class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main tablebackground">
+				<h1 class="page-header">Details</h1>
+				<div class="table-responsive" style="overflow: hidden;">
+					<table id="eventtable" class="table">
+						<thead>
+							<tr>
+								<th>Event-ID</th>
+								<th>Venue</th>
+								<th>Date</th>
+								<th>Category</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="event,iterStat: ${eventListe}">
+								<td><span th:text="${event.getEventid()}"></span></td>
+								<td><span th:text="${event.getEventplace()}"></span></td>
+								<td><span
+									th:text="${#dates.format(event.getEventdate(),'dd.MM.yyyy HH:mm')}"></span></td>
+								<td><span th:text="${event.getsportart()}"></span></td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+				<table id="usertable" class="table">
+
+
+					<p></p>
+					<h1>Joined Users</h1>
+					<thead>
+						<tr>
+							<th>First name</th>
+							<th>Last name</th>
+							<th>Email</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="user,iterStat: ${userListe}">
+							<td><span th:text="${user.getVorname()}"></span></td>
+							<td><span th:text="${user.getNachname()}"></span></td>
+							<td><span th:text="${user.getEmail()}"></span></td>
+						</tr>
+					</tbody>
+				</table>
+
+				<div class="downloadcvs">
+					<a download="somedata.csv" href="#"
+						onclick="return ExcellentExport.csv(this, 'eventtable');">Export
+						to CSV</a> <br />
+				</div>
+				<br />
+
+				<div class="eintragenaustragen">
+					<span id="checkstatusold" th:text="${status}"
+						style="display: none;"></span>
+					<button id="checkstatus" onclick="myFunctionchecker()">
+						<p id="check"></p>
+					</button>
+				</div>
+				<div>
+					<h1>Event info:</h1>
+					<span th:text="${infos}"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- 	 <footer class="footer">
+		<div class="container">
+
+			<iframe src="http://www.tennisseite.de/html-uhr/schwarz.php"
+				width="90" height="40" frameborder="0" border="0"></iframe>
+
+		</div>
+	</footer> -->
+
+	<script th:inline="javascript">
+var status = [[${status}]];
+var eintragen=[[${eintragen}]];
+var austragen=[[${austragen}]];
+if(status == "ja"){
+	document.getElementById("checkstatus").innerHTML = "Austragen";
+}
+if(status == "nein"){
+	document.getElementById("checkstatus").innerHTML = "Eintragen";
+}
+
+function myFunctionchecker() {
+	if(status == "ja"){
+		window.location.href =eintragen;
+	}
+	if(status == "nein"){
+		window.location.href =austragen;
+	}
+}
+
+</script>
+</body>
+</html>
+
+

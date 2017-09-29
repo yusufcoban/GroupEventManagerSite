@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1" />
+<title>User</title>
+<link rel="shortcut icon" href="basketball0.png"/>
+</head>
+<body>
+	<h1>
+		<table cellpadding="2" cellspacing="2" border="2">
+			<tr>
+			<th>User-Id</th>
+			<th>First name</th>
+			<th>Last name</th>
+		<!-- 	<th>Password</th>
+			<th>role</th> -->
+		</tr> 
+			<tr th:each="user,iterStat: ${userliste}">
+				<td><span th:text="${user.getUserid()}"></span></td>
+				<td><span th:text="${user.getVorname()}"></span></td>
+				<td><span th:text="${user.getNachname()}"></span></td>
+				<!-- <td><span th:text="${user.getUserpwd()}"></span></td>
+				<td><span th:text="${user.getRole()}"></span></td> -->
+			</tr>
+			<!-- <tr>
+		<th>ID</th>
+		<td><span th:text="${user.getUserid()}"></span></td>
+		</tr>	<tr>
+		<th>VORNAME</th>
+		<td><span th:text="${user.getVorname()}"></span></td>
+		</tr>	<tr>
+		<th>NACHNAME</th>
+		<td><span th:text="${user.getNachname()}"></span></td>
+		</tr>	<tr>
+		<th>PASSWORD</th>
+		<td><span th:text="${user.getUserpwd()}"></span></td>
+		</tr>	<tr>
+		<th>ROLE</th>
+		<td><span th:text="${user.user.getRole()}"></span></td>
+		</tr> -->
+
+		</table>
+	</h1>
+
+</body>
+</html>

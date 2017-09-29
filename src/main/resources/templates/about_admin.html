@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1" />
+<title>About Us</title>
+<link rel="shortcut icon" href="basketball0.png"/>
+<link href="bootstrap.css" rel="stylesheet" />
+<link href="meincssfile.css" rel="stylesheet" />
+
+<script type="text/javascript"
+	src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>
+<script type="text/javascript" src="uhr.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="uhr.js"></script>
+	<script type="text/javascript"
+		src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+			$(document).ready(function() {
+				$('#eventtable').DataTable();
+			} );
+		</script>
+
+</head>
+<body class="background" background="Ballen.jpg">
+	<div class="container-fluid navigation navbar-fixed-top">
+		<div class="row">
+			<div class="col-md-8 nav1">
+				<a class="navbar-brand" href="./myevents"><img class="logo"
+					src="logowhite.png"></img></a>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="./myevents">My Events</a></li>
+						<li><a href="./events">Events</a></li>
+						<li><a href="./createevent">Create Event</a></li>
+						<li><a href="./useradmin">User Administration</a></li>
+						<li><a href="./category">Category</a></li>
+						<li><a href="./about">About Us</a></li>
+						
+					</ul>
+				</div>
+			</div>
+
+			<div class="col-md-3">
+				<ul class="nav navbar-nav navbar-right">
+					<ul class="nav navbar-nav navbar-left">
+						<li><a href="./myevents"><img src="user.png"></img> <span
+								class="sr-only">(current)</span></a></li>
+					</ul>
+				</ul>
+			</div>
+
+			<div class="col-md-1">
+				<ul class="nav navbar-nav navbar-left status">
+					<li><p th:inline="text" href="/myevents">Userid:[[${#httpServletRequest.remoteUser}]]!</p>
+						<!-- <a href="/myevents">UserID: [[${#httpServletRequest.remoteUser}]]<span class="sr-only"></span></a>
+					 -->
+						<form th:action="@{/logout}" method="post">
+							<input type="submit" value="Log Out" class="logout" />
+						</form></li>
+				</ul>
+			</div>
+		</div>
+
+	</div>
+
+
+	<div class="row hauptteil">
+		<div class="col-md-1">
+			<div class="clock">
+			   <ul>
+			     <li id="hours"> </li>
+			     <li id="point">:</li>
+			     <li id="min"> </li>
+			   </ul>
+			</div>
+		</div>
+		<div class="col-md-11">
+
+		<div class="aboutus">
+			<h1>About Us</h1>
+			<h4>What ist SpoGroMa?</h4>
+			<p>SpoGroMa is a eventmanager for employees of Capgemini. 
+				Every employee can create his own event and join existings events.
+				Via event details, you have the opportunity to fix a vanue and futher more details.
+				</p>
+			<h4>Functions</h4>
+			<ul>
+
+				<p>
+				<li>Create new events</li>
+				<li>Setting events</li>
+				<li>Enter to other events</li>
+				<li>Leave Events</li>
+				<li>Automatic email notification in case of event changes</li>
+
+				</p>
+
+			</ul>
+			<h4>Destination</h4>
+			<p>SpoGroMa wants to enable employees to organize their own sports activities 
+				and to join these created events.Therefore SpoGroMo offers different 
+				leisure-time sport groups. These groups can be managed individually by
+				the employees.</p>
+
+		</div>
+		</div>
+	</div>
+
+</body>
+</html>
+
+

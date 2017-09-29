@@ -1,0 +1,132 @@
+html {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+body {
+	width: auto;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+.spogromalogo{
+	width: 270px
+}
+
+.leerzeile{
+	margin-bottom: 15px;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:400);
+body {
+  background-color:#fff;
+  -webkit-font-smoothing: antialiased;
+  font: normal 14px Roboto,arial,sans-serif;
+}
+
+.form-login {
+	background: transparent;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 15px;
+    border-color:#d2d2d2;
+    border-width: 5px;;
+}
+
+h2{
+	color: rgba(0,0,0,1);
+	text-align: center;
+}
+
+h4 { 
+ color: black;
+ border: 0 solid grey; 
+ border-bottom-width: 2px;
+ padding-bottom: 10px;
+ text-align: center;
+}
+
+.form-control {
+    border-radius: 10px;
+}
+
+.wrapper {
+    text-align: center;
+}
+
+.container {
+   margin: 50px auto;
+ }
+
+ .clock {
+   width: 100%;
+   margin-top: 28%;
+   margin-left: 10%;
+   padding: 30px;
+   color: rgba(255,255,255,0.8);
+ }
+
+ ul {
+   width: 100%;
+   margin: 0 auto;
+   padding: 0;
+   list-style: none;
+   text-align: center;
+ }
+
+ ul li {
+   display:inline;
+   font-size: 10em;
+   text-align: center;
+   text-shadow: 0 0 4px #ccc;
+ }
+
+ #point {
+   position:relative;
+   -moz-animation: mymove 1s ease infinite;
+   -webkit-animation: mymove 1s ease infinite;
+   padding-left: 10px;
+   padding-right: 10px;
+ }
+
+ @-webkit-keyframes mymove {
+   0% {opacity: 1.0; text-shadow: 0 0 10px #ccc; }
+   50% {opacity: 0; text-shadow: none; }
+   100% {opacity: 1.0; text-shadow: 0 0 10px #ccc; }
+ }
+
+ @-moz-keyframes mymove {
+   0% {opacity: 1.0; text-shadow: 0 0 10px #ccc; }
+   50% {opacity: 0; text-shadow: none; }
+   100% {opacity:1 .0; text-shadow: 0 0 10px #ccc; }
+ }
+
+.fuszeile{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	text-align:center;
+	opacity: 0.7;
+}
+
+.mitteln{
+	margin-left: 5%;
+	margin-top: 28%;
+}
+
+.bg{
+	width:100%;
+	height: 10000px;
+	background-color:rgba(0,0,0,0.6);
+}
+
+.contact{
+	margin-top: 1em;
+	color: white;
+	list-style: none;
+}

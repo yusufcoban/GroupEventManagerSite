@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1" />
+<title>Events</title>
+<link rel="shortcut icon" href="basketball0.png"/>
+<link href="bootstrap.css" rel="stylesheet" />
+<link href="meincssfile.css" rel="stylesheet" />
+<link rel="stylesheet" href="sweetalert.css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="sweetalert.js"></script>
+<script type="text/javascript" src="sweetalert.min.js"></script>
+<script type="text/javascript" src="uhr.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="uhr.js"></script>
+	<script type="text/javascript"
+		src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>
+
+<script type="text/javascript"
+	src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function() {
+		$('#eventtable').DataTable();
+	});
+</script>
+
+</head>
+<body class="background" background="Ballen.jpg">
+	<div class="container-fluid navigation navbar-fixed-top">
+		<div class="row">
+			<div class="col-md-9 nav1">
+				<a class="navbar-brand" href="./myevents"><img class="logo"
+					src="logowhite.png"></img></a>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="./myevents">My Events</a></li>
+						<li><a href="./events">Events</a></li>
+						<li><a href="./category">Category</a></li>
+						<li><a href="./about">About Us</a></li>
+						<li><a href="./contact">Contact</a></li>
+						
+					</ul>
+				</div>
+			</div>
+
+			<div class="col-md-2">
+				<ul class="nav navbar-nav navbar-right">
+					<ul class="nav navbar-nav navbar-left">
+						<li><a href="./myevents"><img src="./user.png"></img> <span
+								class="sr-only">(current)</span></a></li>
+					</ul>
+				</ul>
+			</div>
+
+			<div class="col-md-1">
+				<ul class="nav navbar-nav navbar-left status">
+					<li><p th:inline="text" href="./myevents">Userid:[[${#httpServletRequest.remoteUser}]]!</p>
+						<!-- <a href="/myevents">UserID: [[${#httpServletRequest.remoteUser}]]<span class="sr-only"></span></a>
+					 -->
+						<form th:action="@{/logout}" method="post">
+							<input type="submit" value="Log Out" class="logout" />
+						</form></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row hauptteil">
+	<div class="col-sm-1">
+		<div class="clock">
+			   <ul>
+			     <li id="hours"> </li>
+			     <li id="point">:</li>
+			     <li id="min"> </li>
+			   </ul>
+			</div>
+	</div>
+	
+	<div class="col-sm-11">
+		<div
+			class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main tablebackground">
+			<h1 class="page-header">
+				Events
+				<div class="Nevents"><p>Events you have not yet joined</p></div>
+			</h1>
+			<div class="table-responsive" style="overflow: hidden;">
+				<table id="eventtable" class="table">
+					<thead>
+						<tr>
+							<th>Event-ID</th>
+							<th>Venue</th>
+							<th>Date</th>
+							<th>Category</th>
+							<th>Registered</th>
+							<th>Free</th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="event,iterStat: ${eventListe}">
+							<td><span th:text="${event.getEventid()}"></span></td>
+							<td><span th:text="${event.getEventplace()}"></span></td>
+							<!-- <td><span th:text="${event.getEventdate()}"></span></td>  -->
+							<td><span
+								th:text="${#dates.format(event.getEventdate(),'dd.MM.yyyy HH:mm')}"></span></td>
+							<td><span th:text="${event.getsportart()}"></span></td>
+							<td><span th:text="${event.getUserAnzahl()}"></span></td>
+							<td><span
+								th:text="${event.getmaxspieler()-event.getUserAnzahl()}"></span></td>
+							<td><a
+								th:href="@{/events/details(id=${event.getEventid()})}"> <input
+									class="minus" alt="" src="info.png" type="image" /></a></td>
+							<td><a th:href="@{/events/invent(id=${event.getEventid()})}"
+							onclick="myFunctionalert()"><input class="plus" alt="" src="plus-button.png" type="image" />
+							</a></td>
+
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	</div>
+	<script type="text/javascript">
+		function myFunctionalert() {
+			swal({
+			     title: "Let's rock",
+			     text: "Event added to MyEvents...",
+			     type: "success",
+			     timer: 1500})
+			/* swal("Let's rock!", "Event added to MyEvents...", "success"); */
+		};
+	</script>
+	<!-- <footer class="footer">
+		<div class="container">
+			<p class="text-muted">Platziere hier den Inhalt für den fixierten
+				Footer.</p>
+		</div>
+	</footer> -->
+</body>
+</html>
+
+

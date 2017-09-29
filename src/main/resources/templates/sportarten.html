@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1" />
+<title>Sports</title>
+<link rel="shortcut icon" href="basketball0.png"/>
+</head>
+<body>
+	<h1>
+		<table cellpadding="2" cellspacing="2" border="2">
+			<tr>
+			<th>Sports</th>
+		<!-- 	<th>maxSpieler</th> -->
+		</tr> 
+			<tr th:each="sportart,iterStat: ${sportartenListe}">
+				<td><span th:text="${sportart.getsportart()}"></span></td>
+			<!-- 	<td><span th:text="${sportart.getMaxspieler()}"></span></td> -->
+
+			</tr>
+
+		</table>
+	</h1>
+
+</body>
+</html>

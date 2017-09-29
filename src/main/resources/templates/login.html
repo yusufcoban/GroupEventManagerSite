@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+	  <title>SPOGROMA</title>
+
+<head>
+<link rel="shortcut icon" href="basketball0.png"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="uhr.js"></script>
+	<link href="bootstrap.css" rel="stylesheet"/>
+	<link href="login.css" rel="stylesheet"/>
+	<script type="text/javascript" src="uhr.js"></script>
+</head>
+
+<body background="BallenSharp.jpg">
+	<div class="bg">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="clock">
+				   <ul>
+				     <li id="hours"> </li>
+				     <li id="point">:</li>
+				     <li id="min"> </li>
+				   </ul>
+				 </div>
+			 </div>
+			<div class="col-sm-6">
+				
+				<form th:action="@{/login}" method="post">
+				    <div class="row">
+				        <div class="col-md-6 mitteln">
+			           		<div class="form-login login">
+				            	<img class="spogromalogo" src="logowhite.png"></img>
+				            	<input type="text" name="username" id="userName" class="form-control input-sm chat-input leerzeile" placeholder="Username" required="required"/>
+				            	<input type="password" name="password" id="userPassword" class="form-control input-sm chat-input leerzeile" placeholder="Password" required="required"/>
+				            
+					            <div class="wrapper">
+					            	<span class="group-btn">     
+					                <input type="submit" value="Sign In" class="btn btn-primary btn-md" />
+					            	</span>
+					            <li class="contact">Forgot your password? <a href="contactregister">Contact us</a></li>
+				            	</div>
+			           		</div>
+		        		</div>
+		    		</div>
+		    	</form>
+		    </div>
+	    </div>
+	</div>
+	</div>
+</body>
+<footer>
+	 <div class="alert alert-danger fuszeile" role="alert" th:if="${param.error}" style="color:red">
+	 	<strong>Invalid username or password.</strong>
+     </div>
+     <div class="alert alert-success fuszeile" role="alert" th:if="${param.logout}" style="color:green">
+     	<strong>You have been logged out succesfully.</strong>
+     </div>
+</footer>
+</html>
+

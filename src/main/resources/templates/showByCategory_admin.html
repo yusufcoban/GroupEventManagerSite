@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1" />
+<title>Category</title>
+<link rel="shortcut icon" href="basketball0.png" />
+<link href="../bootstrap.css" rel="stylesheet" />
+<link href="../meincssfile.css" rel="stylesheet" />
+<script type="text/javascript" src="/clndr.js"></script>
+<script type="text/javascript" src="uhr.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="uhr.js"></script>
+<script type="text/javascript"
+	src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>
+
+
+</head>
+<body class="background" background="../Ballen.jpg">
+	<div class="container-fluid navigation navbar-fixed-top">
+		<div class="row">
+			<div class="col-md-9  nav1">
+				<a class="navbar-brand" href="./myevents"><img class="logo"
+					src="logowhite.png"></img></a>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="./myevents">My Events</a></li>
+						<li><a href="./events">Events</a></li>
+						<li><a href="./createevent">Create Event</a></li>
+						<li><a href="./useradmin">User Administration</a></li>
+						<li><a href="./category">Category</a></li>
+						<li><a href="./about">About Us</a></li>
+
+
+					</ul>
+				</div>
+			</div>
+
+			<div class="col-md-2">
+				<ul class="nav navbar-nav navbar-right">
+					<ul class="nav navbar-nav navbar-left">
+						<li><a href="./myevents"><img src="user.png"></img> <span
+								class="sr-only">(current)</span></a></li>
+					</ul>
+				</ul>
+			</div>
+
+			<div class="col-md-1">
+				<ul class="nav navbar-nav navbar-left status">
+					<li><p th:inline="text" href="/myevents">Userid:[[${#httpServletRequest.remoteUser}]]!</p>
+						<!-- <a href="/myevents">UserID: [[${#httpServletRequest.remoteUser}]]<span class="sr-only"></span></a>
+					 -->
+						<form th:action="@{/logout}" method="post">
+							<input type="submit" value="Log Out" class="logout" />
+						</form></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="row hauptteil">
+		<div class="col-sm-1">
+			<div class="clock">
+				<ul>
+					<li id="hours"></li>
+					<li id="point">:</li>
+					<li id="min"></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="col-sm-11">
+			<div
+				class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main tablebackground">
+				<h1 class="page-header">Category</h1>
+				<div class="table-responsive cat1">
+
+					<div class="catmitabo">
+						<span id="checkyoga" th:text="${yogaabo}" style="display: none;"></span>
+						<a href="./categorylist?cat=Yoga"> <input alt=""
+							src="yoga.png" href="google.de" type="image" /></a>
+						<button id="myfunc1" onclick="myFunctionyoga()">
+							<p id="yogaabo"></p>
+						</button>
+					</div>
+					<div class="catmitabo1">
+						<span id="checkbasketball" th:text="${basketballaabo}"></span> <a
+							href="./categorylist?cat=Basketball"> <input alt=""
+							src="basketball.png" href="google.de" type="image" /></a>
+						<button id="myfunc2" onclick="myFunctionbasketball()">
+							<p id="basketballabo"></p>
+						</button>
+					</div>
+					<div class="catmitabo2">
+						<span id="checkfussball" th:text="${fussballaabo}"></span> <a
+							href="./categorylist?cat=Fussball"> <input alt=""
+							src="Fussball.png" href="google.de" type="image" /></a>
+						<button id="myfunc3" onclick="myFunctionfussball()">
+							<p id="fussballabo"></p>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script th:inline="javascript">
+var yoga = [[${yogaabo}]];
+var basketball=[[${basketballabo}]];
+var fussball=[[${fussballabo}]];
+if(yoga == "ja"){
+	document.getElementById("yogaabo").innerHTML = "Deabonnieren";
+}
+if(yoga == "nein"){
+	document.getElementById("yogaabo").innerHTML = "Abonnieren";
+}
+if(basketball == "ja"){
+	document.getElementById("basketballabo").innerHTML = "Deabonnieren";
+}
+if(basketball == "nein"){
+	document.getElementById("basketballabo").innerHTML = "Abonnieren";
+}
+if(fussball == "ja"){
+	document.getElementById("fussballabo").innerHTML = "Deabonnieren";
+}
+if(fussball == "nein"){
+	document.getElementById("fussballabo").innerHTML = "Abonnieren";
+}
+
+function myFunctionyoga() {
+	if(yoga == "ja"){
+		window.location.href = "/deabo?sportart=Yoga";
+	}
+	if(yoga == "nein"){
+		window.location.href = "/abo?sportart=Yoga";
+	}
+}
+function myFunctionbasketball() {
+	if(basketball == "ja"){
+		window.location.href = "/deabo?sportart=Basketball";
+	}
+	if(basketball == "nein"){
+		window.location.href = "/abo?sportart=Basketball";
+	}
+}
+function myFunctionfussball() {
+	if(fussball == "ja"){
+		window.location.href = "/deabo?sportart=Fussball";
+	}
+	if(fussball == "nein"){
+		window.location.href = "/abo?sportart=Fussball";
+	}
+}
+</script>
+
+
+</body>
+
+
+</html>
+

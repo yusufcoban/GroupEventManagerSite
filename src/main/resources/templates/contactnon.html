@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1" />
+<title>SPOGROMA</title>
+	<link rel="shortcut icon" href="basketball0.png"/>
+	<link href="bootstrap.css" rel="stylesheet" />
+	<link href="meincssfile.css" rel="stylesheet" />
+	<link rel="stylesheet" href="sweetalert.css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="sweetalert.js"></script>
+<script type="text/javascript" src="sweetalert.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="uhr.js"></script>
+	<script type="text/javascript"
+		src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>
+	<script type="text/javascript" charset="utf-8">
+		$(document).ready(function() {
+			$('#eventtable').DataTable();
+		});
+	</script>
+</head>
+<body class="background" background="Ballen.jpg">
+	<div class="container-fluid navigation navbar-fixed-top">
+		<div class="row">
+			<div class="col-md-9  nav1">
+				<a class="navbar-brand" href="./myevents"><img class="logo"
+					src="logowhite.png"></img></a>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="./login">Login</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="col-md-2">
+				<ul class="nav navbar-nav navbar-right">
+					<ul class="nav navbar-nav navbar-left">
+					</ul>
+				</ul>
+			</div>
+
+	
+		</div>
+	</div>
+
+	<div class="row hauptteil">
+		<div class="col-md-4">
+			<div class="clock">
+			   <ul>
+			     <li id="hours"> </li>
+			     <li id="point">:</li>
+			     <li id="min"> </li>
+			   </ul>
+			</div>
+		</div>
+		<div class="col-md-8">
+		<div class="contact">
+			<h1>Contact</h1>
+			<h4>Form</h4>
+			<div>
+				<form action="#" th:action="@{/sendmailtoadmin}" th:object="${model}" method="post">
+					<p>
+						<textarea rows="4" cols="50" th:field="*{Inhalt}" required="required" style="color:black;">
+						</textarea>
+					</p>
+
+					<p>
+						<input type="submit" onclick="myFunctionalert()" class="btn btn-sm btn-default" value="Submit" /> 
+						<input type="reset" class="btn btn-sm btn-default" value="Reset" />
+					</p>
+				</form>
+			</div>
+			<h4>Address</h4>
+
+			<address>
+				<strong>Capgemini</strong> <br>Loeffelstrasse 46</br> <br>70597
+				Stuttgart</br> <abbr title="Telefonnummer">Phone:</abbr> +49 711 50505-0
+			</address>
+			
+			
+			<h4>Location</h4>
+			
+			<script class="location" type="text/javascript"
+				src="http://maps.google.com/maps/api/js?sensor=false" style="color:black;"></script>
+			<div style="overflow: hidden; height: 200px; width: 600px; color: black;">
+				<div id="map_canvas" style="height: 200px; width: 400px; color:black;"></div>
+				<a href="http://www.maps-einbinden.de">google maps für webseite</a>
+			</div>
+
+			
+			<script type="text/javascript" style="color:black;">
+				window.setTimeout("initGmaps();", 300);
+				function initGmaps() {
+					var myOptions = {
+						zoom : 15,
+						center : new google.maps.LatLng(48.74690649999999,
+								9.161616900000013),
+						mapTypeId : google.maps.MapTypeId.ROADMAP
+					};
+					map = new google.maps.Map(document
+							.getElementById("map_canvas"), myOptions);
+					marker = new google.maps.Marker({
+						map : map,
+						position : new google.maps.LatLng(48.74690649999999,
+								9.161616900000013)
+					});
+					infowindow = new google.maps.InfoWindow(
+							{
+								content : "<b>Capgemini</b><br>Loeffelstrasse 46</br><br>70597 Stuttgart</br>"
+							});
+					google.maps.event.addListener(marker, "click", function() {
+						infowindow.open(map, marker);
+					});
+					infowindow.open(map, marker);
+				}
+			</script>
+		</div>
+		</div>
+	</div>
+</body>
+</html>
+
+

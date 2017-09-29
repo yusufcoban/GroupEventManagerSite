@@ -1,0 +1,350 @@
+@CHARSET "ISO-8859-1";
+
+span, a, p{
+	color: white;
+}
+div{
+	color:black;
+}
+html{
+	overlow-x:hidden;
+}
+
+.aboutus p{
+	width:400px;
+	text-align: justify;
+	margin-bottom:1%;
+	list-style:none;
+}
+
+.aboutus{
+	background-color:rgba(0,0,0,0.6);
+	margin-left:auto;
+	margin-right:auto;
+	padding-left:1%;
+	padding-bottom:1%;
+	color:white;
+	width:100%;
+	max-width:450px;
+}
+.aboutus p:hover{
+	color:white;
+}
+.contact{
+	text-align:center;
+	background-color:rgba(0,0,0,0.6);
+	left:8%;
+	margin-right:auto;
+	padding-bottom:1%;
+	color:white;
+	width:100%;
+	max-width:450px;
+}
+.contact1{
+	color:white;
+
+}
+.contact2{
+	color:black;
+
+}
+.tablebackground{
+	background: rgba(0,0,0,0.6);
+	left:8%;
+	width:70%;
+	z-index:0;	
+	padding-bottom:2.5%;
+	margin-bottom:2.5%;
+	
+}
+
+.notice{
+	color:white;
+	background: rgba(0,0,0,0.6);
+	left:8%;
+	width:100%;
+	z-index:100;
+	
+}
+
+.cate{
+	background: rgba(0,0,0,0.6);
+	width: 500px;
+}
+input {
+	color:#000;
+	
+}
+	
+.logo{
+	font-size:50px !important;
+	width: 120px;
+}
+
+.dataTables_filter{
+	text-align:right;
+}
+
+.background{
+	width: auto;
+	-webkit-background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+.status li a{
+	padding:0%;
+}
+
+.status li{
+	margin:15%;
+}
+
+input{
+	color:black;
+	
+}
+
+.navigation{
+	border-bottom: 1px solid white;
+	background: rgba(0,0,0,0.6);
+	transformation:scale(0.9);
+	background-color:none;
+
+}
+
+.logout {
+	margin: 0;
+  	padding: 0;
+  	border: 0;
+  	background: transparent;
+  	font-family: inherit;
+  	font-size: 1em;
+  	cursor: pointer;
+  	color:white;
+}
+.logout:hover {
+	color:rgba(8,143,181,1);
+}
+.plus.hover{
+	box-shadow: 0 2px 1px 0 rgba(0,0,0,0.2);
+}
+.minus.hover{
+	box-shadow: 0 2px 1px 0 rgba(0,0,0,0.2);
+}
+
+.SportDrop{
+	color:black;
+  	box-shadow: 0 2px 1px 0 rgba(0,0,0,0.2);
+}
+.SportDrop.hover{
+	box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1);
+}
+
+.category1 a{
+	width: 100% auto;
+}
+
+.category1 input{
+	color:white;
+	width: 100px;
+	height: 100px;
+	border-width: 1px;
+	border-style: solid;
+	padding:2px;
+	float: left;
+	background-color:rgba(8,143,181,0.8);
+	margin-right:12%;
+	margin-bottom:5%;
+	
+}
+th{
+	color:white;
+}
+td{
+	color:white;
+}
+
+tr{
+	color:white;
+}
+
+form{
+	color:white;
+}
+#eventtable_info{
+	color:white;
+}
+
+.nl{
+	margin-top: 2em;
+}
+
+h1{
+	padding-top: 10px;
+	color:white;
+	margin-top:0;
+}
+
+.clock {
+   width: 30em;
+   position:fixed;
+   padding: 0;
+   color: rgba(255,255,255,0.8);
+   z-index:0
+ }
+
+ .clock ul {
+   width: 100%;
+   margin: 0 auto;
+   margin-top:-9%;
+   list-style: none;
+   margin-left:5%;
+  
+   
+ }
+
+ .clock ul li {
+   display:inline;
+   font-size: 7em;
+   text-align: center;
+   text-shadow: 0 0 4px #ccc;
+ }
+
+ #point {
+   position:relative;
+   -moz-animation: mymove 1s ease infinite;
+   -webkit-animation: mymove 1s ease infinite;
+   padding-left: 10px;
+   padding-right: 10px;
+ }
+
+ @-webkit-keyframes mymove {
+   0% {opacity: 1.0; text-shadow: 0 0 10px #ccc; }
+   50% {opacity: 0; text-shadow: none; }
+   100% {opacity: 1.0; text-shadow: 0 0 10px #ccc; }
+ }
+
+ @-moz-keyframes mymove {
+   0% {opacity: 1.0; text-shadow: 0 0 10px #ccc; }
+   50% {opacity: 0; text-shadow: none; }
+   100% {opacity:1 .0; text-shadow: 0 0 10px #ccc; }
+ }
+ 
+ .bg{
+ 	text-align: center;
+	width:100%;
+	height: 10000px;
+	background-color:rgba(0,0,0,0.6);
+	overflow-y: hidden;
+}
+
+.nav1{
+	margin-top:1%;
+}
+
+.status p{
+	margin:0;
+}
+
+.cat1 input{
+	width: 100px; 
+	height: 100px; 
+	background-color:transparent;
+}
+.cat1 button{
+background-color:transparent;
+	color:black;
+	border:none;
+}
+.cat1 p:hover{
+	color:rgba(8,143,181,0.8);
+	
+}
+
+.cat1 input:hover{
+	border-color:rgba(8,143,181,0.8);
+	border-width: 5px; 
+	border-style: solid; 
+}
+
+p:hover{
+		color:rgba(8,143,181,0.8);
+	
+}
+
+.cat1{
+	width: 100%;
+	margin: 0 auto;
+	padding-bottom:5%;
+	padding-top:5%;
+}
+
+label{
+	color:white;
+}
+
+.Nevents{
+	font-size:40%;
+	margin-left:0.3%;
+	list-style:none;
+}
+
+.pic1{
+	left:0;
+}
+.pic2{
+	margin:0 auto;
+}
+.pic3{
+	right:0;
+}
+
+.catmitabo{		
+	position:relative;
+	width:30%;
+	
+	float:left;
+}
+
+.catmitabo button{
+	position:absolute;
+}
+
+.catmitabo1{
+	position:relative;
+	width:30%;
+	float:left;
+	margin-right: 5%;
+	margin-left: 5%;
+}
+
+.catmitabo1 button{
+	position:absolute;
+}
+
+.catmitabo2{
+	position:relative;
+	width:30%;
+	float:left;
+}
+
+.catmitabo2 button{
+	position:absolute;
+}
+
+.hauptteil{
+	margin-top:12.5%;
+}
+
+.eventtable{
+	width:50%
+}
+
+.checkyoga:hover{
+	 content: url('yoga-blue.png');
+}
+
+.eintragenaustragen{
+	float:right;
+}
